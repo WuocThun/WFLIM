@@ -23,7 +23,7 @@ class EpisodeController extends Controller
      */
     public function create()
     {
-        //
+        echo ' Tập phim tại đây';
     }
 
     /**

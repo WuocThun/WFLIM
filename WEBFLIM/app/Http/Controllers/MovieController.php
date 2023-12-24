@@ -23,7 +23,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        echo 'xem phim tịa đây';
     }
 
     /**

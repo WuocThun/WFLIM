@@ -34,6 +34,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // route admin
 Route::resource('category', CategoryController::class);
 Route::resource('genre', GenreController::class);
-Route::resource('country', EpisodeController::class);
+Route::resource('country', CountryController::class);
 Route::resource('movie', MovieController::class);
-Route::resource('episode', CountryController::class);
+Route::resource('episode', EpisodeController::class);
