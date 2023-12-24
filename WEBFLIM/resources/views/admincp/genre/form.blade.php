@@ -22,7 +22,11 @@
                     @endif
                     <div class="form-group ">
                         {!! Form::label('title', 'Title', []) !!}
-                        {!! Form::text('title', isset($genre) ? $genre->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'title']) !!}
+                        {!! Form::text('title', isset($genre) ? $genre->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'slug','onkeyup' => 'ChangeToSlug()']) !!}
+                    </div>
+                    <div class="form-group ">
+                        {!! Form::label('slug', 'Slug', []) !!}
+                        {!! Form::text('slug', isset($genre) ? $genre->slug : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'convert_slug']) !!}
                     </div>
                     <div class="form-group ">
                         {!! Form::label('description', 'Description', []) !!}
@@ -47,6 +51,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">slug</th>
                         <th scope="col">Status</th>
                         <th scope="col">Manage</th>
                     </tr>
@@ -58,6 +63,7 @@
                         <th scope="row">{{$cate -> id}}</th>
                         <td>{{$cate->title}}</td>
                         <td>{{$cate->description}}</td>
+                        <td>{{$cate->slug}}</td>
                         <td>
                             @if ($cate->status)
                             Hiển thị

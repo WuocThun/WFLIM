@@ -21,9 +21,9 @@ use App\Http\Controllers\CountryController;
 */
 
 Route::get('/', [indexController::class, 'home'])->name('homepage');
-Route::get('/danhmuc', [indexController::class, 'category'])-> name('category');
-Route::get('/the-loai', [indexController::class, 'genre'])->name('genre');
-Route::get('/quoc-gia', [indexController::class, 'country'])-> name('country');
+Route::get('/danhmuc/{slug}', [indexController::class, 'category'])-> name('category');
+Route::get('/the-loai/{slug}', [indexController::class, 'genre'])->name('genre');
+Route::get('/quoc-gia/{slug}', [indexController::class, 'country'])-> name('country');
 Route::get('/phim', [indexController::class, 'movie'])-> name('movie');
 Route::get('/xem-phim', [indexController::class, 'watch'])-> name('watch');
 Route::get('/episode', [indexController::class, 'episode'])-> name('episode');

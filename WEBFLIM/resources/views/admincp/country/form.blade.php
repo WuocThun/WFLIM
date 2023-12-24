@@ -8,7 +8,7 @@
             <div class="card">
                 <div>
                 </div>
-                <div class="card-header">Quản lí Thể loại</div>
+                <div class="card-header">Quốc gia</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -22,7 +22,11 @@
                     @endif
                     <div class="form-group ">
                         {!! Form::label('title', 'Title', []) !!}
-                        {!! Form::text('title', isset($country) ? $country->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'title']) !!}
+                        {!! Form::text('title', isset($country) ? $country->title : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'slug','onkeyup' => 'ChangeToSlug()']) !!}
+                    </div>
+                    <div class="form-group ">
+                        {!! Form::label('slug', 'Slug', []) !!}
+                        {!! Form::text('slug', isset($country) ? $country->slug : '', ['class'=> 'form-control', 'placeholder' => 'Nhập tiêu đề','id' => 'convert_slug']) !!}
                     </div>
                     <div class="form-group ">
                         {!! Form::label('description', 'Description', []) !!}
@@ -47,6 +51,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">slug</th>
                         <th scope="col">Status</th>
                         <th scope="col">Manage</th>
                     </tr>
@@ -58,6 +63,7 @@
                         <th scope="row">{{$cate -> id}}</th>
                         <td>{{$cate->title}}</td>
                         <td>{{$cate->description}}</td>
+                        <td>{{$cate->slug}}</td>
                         <td>
                             @if ($cate->status)
                             Hiển thị
